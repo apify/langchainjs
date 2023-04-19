@@ -6,7 +6,7 @@ This page covers how to use [Apify](https://apify.com) within LangChain.
 
 Apify is a cloud platform for web scraping and data extraction,
 which provides an [ecosystem](https://apify.com/store) of more than a thousand
-ready-made apps called *Actors* for various scraping, crawling, and extraction use cases.
+ready-made apps called _Actors_ for various scraping, crawling, and extraction use cases.
 
 [![Apify Actors](/img/ApifyActors.png)](https://apify.com/store)
 
@@ -14,13 +14,11 @@ This integration enables you run Actors on the Apify platform and load their res
 indexes with documents and data from the web, e.g. to generate answers from websites with documentation,
 blogs, or knowledge bases.
 
-
 ## Installation and Setup
 
-- Install the Apify API client for Python with `pip install apify-client`
+- Install the Apify API client for JavaScript with `npm install apify-client` or `yarn add apify-client`
 - Get your [Apify API token](https://console.apify.com/account/integrations) and either set it as
-  an environment variable (`APIFY_API_TOKEN`) or pass it to the `ApifyWrapper` as `apify_api_token` in the constructor.
-
+  an environment variable (`APIFY_API_TOKEN`) or pass it to the `ApifyWrapper` in the constructor.
 
 ## Wrappers
 
@@ -32,8 +30,7 @@ You can use the `ApifyWrapper` to run Actors on the Apify platform.
 import { ApifyWrapper } from "langchain/tools";
 ```
 
-For a more detailed walkthrough of this wrapper, see [this guide](../modules/agents/tools/apify.md).
-
+For a more detailed walkthrough of this wrapper, see [this guide](../modules/agents/tools/integrations/apify.md).
 
 ### Loader
 
