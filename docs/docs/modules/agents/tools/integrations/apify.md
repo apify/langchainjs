@@ -37,7 +37,6 @@ Then run the Actor, wait for it to finish, and fetch its results from the Apify 
 Note that if you already have some results in an Apify dataset, you can load them directly using `ApifyDatasetLoader`, as shown in [this guide](../../../indexes/document_loaders/examples/web_loaders/apify_dataset.md). In that guide, you'll also find the explanation of the `datasetMappingFunction`, which is used to map fields from the Apify dataset records to LangChain `Document` fields.
 
 ```ts
-const apify = new ApifyWrapper(APIFY_API_TOKEN);
 const loader = await apify.callActor(
   "apify/website-content-crawler",
   { startUrls: [{ url: "https://js.langchain.com/docs/" }] },
@@ -65,9 +64,7 @@ Next, create the retrieval chain and enter a query:
 const chain = RetrievalQAChain.fromLLM(model, vectorStore.asRetriever(), {
   returnSourceDocuments: true,
 });
-const res = await chain.call({
-  query: "What is LangChain?",
-});
+const res = await chain.call({ query: "What is LangChain?" });
 ```
 
 And finally, output the results:
