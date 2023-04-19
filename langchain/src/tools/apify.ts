@@ -20,9 +20,18 @@ export interface ApifyCallActorOptions {
   timeout?: number;
 }
 
+/**
+ * Wrapper around Apify.
+ * To use, you should have the `apify-client` package installed,
+ * and the environment variable `APIFY_API_TOKEN` set with your API token, or pass
+ * it to the constructor.
+ */
 export class ApifyWrapper {
   protected apiToken: string;
 
+  /**
+   * @param apiToken Apify API token
+   */
   constructor(
     apiToken: string | undefined = typeof process !== "undefined"
       ? // eslint-disable-next-line no-process-env
@@ -51,6 +60,14 @@ export class ApifyWrapper {
     }
   }
 
+  /**
+   * Run an Actor on the Apify platform and wait for it to finish, so that its results are ready.
+   * @param actorId The ID or name of the Actor on the Apify platform.
+   * @param input The input object of the Actor that you're trying to run.
+   * @param datasetMappingFunction A function that takes a single object (an Apify dataset item) and converts it to an instance of the Document class.
+   * @param options Options specifying additional settings for the Actor run.
+   * @returns An instance of `ApifyDatasetLoader` with the results from the Actor run.
+   */
   async callActor(
     actorId: string,
     input: unknown,
