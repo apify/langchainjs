@@ -40,7 +40,7 @@ Note that if you already have some results in an Apify dataset, you can load the
 const apify = new ApifyWrapper(APIFY_API_TOKEN);
 const loader = await apify.callActor(
   "apify/website-content-crawler",
-  { startUrls: [{ url: "https://docs.apify.com/platform" }] },
+  { startUrls: [{ url: "https://js.langchain.com/docs/" }] },
   (item) =>
     new Document({
       pageContent: (item.text || "") as string,
@@ -66,7 +66,7 @@ const chain = RetrievalQAChain.fromLLM(model, vectorStore.asRetriever(), {
   returnSourceDocuments: true,
 });
 const res = await chain.call({
-  query: "What is Apify?",
+  query: "What is LangChain?",
 });
 ```
 
@@ -78,11 +78,11 @@ console.log(res.sourceDocuments.map((d) => d.metadata.source));
 ```
 
 ```
-Apify is a cloud platform that helps you build reliable web scrapers, fast, and automate anything you can do manually in a web browser.
+LangChain is a framework for developing applications powered by language models.
 [
-  'https://docs.apify.com/platform',
-  'https://docs.apify.com/platform/integrations',
-  'https://docs.apify.com/platform/actors/publishing/monetize',
-  'https://docs.apify.com/platform/security'
+  'https://js.langchain.com/docs/',
+  'https://js.langchain.com/docs/modules/chains/',
+  'https://js.langchain.com/docs/modules/chains/llmchain/',
+  'https://js.langchain.com/docs/category/functions-4'
 ]
 ```
