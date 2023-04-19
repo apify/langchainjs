@@ -16,7 +16,12 @@ blogs, or knowledge bases.
 
 ## Installation and Setup
 
-- Install the [Apify API client](https://npmjs.com/package/apify-client) with `npm install apify-client` or `yarn add apify-client`
+- Install the [Apify API client](https://npmjs.com/package/apify-client) using your favorite package manager:
+
+```bash npm2yarn
+npm install apify-client
+```
+
 - Get your [Apify API token](https://console.apify.com/account/integrations) and either set it as
   an environment variable (`APIFY_API_TOKEN`) or pass it to the `ApifyWrapper` in the constructor.
 
