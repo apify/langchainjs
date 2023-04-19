@@ -6,6 +6,10 @@ This guide shows how to load Apify datasets to LangChain.
 
 ## Prerequisites
 
+```bash npm2yarn
+npm install apify-client
+```
+
 You need to have an existing dataset on the Apify platform. If you don't have one, please first check out [this guide](../../../../agents/tools/integrations/apify.md) on how to use Apify to extract content from documentation, knowledge bases, help centers, or blogs.
 
 First, import `ApifyDatasetLoader` into your source code:

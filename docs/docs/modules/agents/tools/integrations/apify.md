@@ -11,6 +11,10 @@ In this example, we'll use the [Website Content Crawler](https://apify.com/apify
 which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs,
 and extract text content from the web pages. Then we feed the documents into a vector index and answer questions from it.
 
+```bash npm2yarn
+npm install apify-client
+```
+
 First, import `ApifyWrapper` and some other classes into your source code:
 
 ```ts
