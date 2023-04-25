@@ -12,12 +12,12 @@ export interface ApifyCallActorOptions {
    * Memory in megabytes which will be allocated for the new actor run.
    * If not provided, the run uses memory of the default actor run configuration.
    */
-  memory?: number;
+  memoryMbytes?: number;
   /**
    * Timeout for the actor run in seconds. Zero value means there is no timeout.
    * If not provided, the run uses timeout of the default actor run configuration.
    */
-  timeout?: number;
+  timeoutSecs?: number;
 }
 
 /**
@@ -79,7 +79,11 @@ export class ApifyWrapper {
     const { ApifyClientClass } = await ApifyWrapper.imports();
     const apifyClient = new ApifyClientClass({ token: this.apiToken });
 
-    const actorCall = await apifyClient.actor(actorId).call(input, options);
+    const actorCall = await apifyClient.actor(actorId).call(input, {
+      ...options,
+      memory: options?.memoryMbytes,
+      timeout: options?.timeoutSecs,
+    });
 
     return new ApifyDatasetLoader(
       actorCall.defaultDatasetId,
