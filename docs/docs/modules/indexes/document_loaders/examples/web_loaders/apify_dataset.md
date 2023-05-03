@@ -10,7 +10,7 @@ which provides an [ecosystem](https://apify.com/store) of more than a thousand
 ready-made apps called _Actors_ for various web scraping, crawling, and data extraction use cases.
 
 This guide shows how to load documents
-from an [Apify Dataset](https://docs.apify.com/platform/storage/dataset)—a scaleable append-only
+from an [Apify Dataset](https://docs.apify.com/platform/storage/dataset)—a scalable append-only
 storage built for storing structured web scraping results,
 such as a list of products or Google SERPs, and then export them to various
 formats like JSON, CSV, or Excel.
